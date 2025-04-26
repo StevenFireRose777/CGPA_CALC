@@ -1,15 +1,5 @@
-#include <iostream>
-#include <vector>
+#include "CGPA.hpp"
 
-
-class student_GPA{
-public:
-    std::string name;
-    std::vector<double> GPAS;
-    int semesters;
-    student_GPA();
-    ~student_GPA();
-};
 
 student_GPA::student_GPA(){
 
@@ -23,7 +13,7 @@ student_GPA::student_GPA(){
     
 
     for(int i = 0; i < semesters; ++i){
-        std::cout << "Enter GPA for semester: " << (i + 1) << ": ";
+        std::cout << "Enter GPA for semester " << (i + 1) << ": ";
         std::cin >> GPAS[i];
     }
     
@@ -36,10 +26,14 @@ student_GPA::~student_GPA()
 }
 
 
-void calc_GPA(const std::vector<double>& GPAS, int semesters){
-    for(auto i = 0; i < 10; ++i){
-        std::cout << "COOKIES\n";
+void calc_GPA(const std::vector<double>& GPAS, int semesters, std::string name){
+    double total, average;
+    for(auto i = 0; i < semesters; ++i){
+        total += GPAS[i];
     }
+    average = total / semesters;
+
+    std:: cout << name + " your cummunative GPA in " << semesters << " semesters is about " << average << "\n";
 
 
 
@@ -52,7 +46,7 @@ int main(){
     student_GPA student;
 
 
-    calc_GPA(student.GPAS, student.semesters);
+    calc_GPA(student.GPAS, student.semesters, student.name);
 
     
     return 0;
