@@ -4,18 +4,29 @@
 
 class student_GPA{
 public:
-    student_GPA(std::string name, std::vector<int> GPAS);
+    std::string name;
+    std::vector<double> GPAS;
+    int semesters;
+    student_GPA();
     ~student_GPA();
 };
 
-student_GPA::student_GPA(std::string name = "NULL", std::vector<int> GPAS)
-{
+student_GPA::student_GPA(){
+
     std::cout << "What is your name: ";
     std::cin >> name;
 
-    int semseters;
     std::cout << "How many semesters did you have so far: ";
-    std::cin >> semseters;
+    std::cin >> semesters;
+
+    GPAS.resize(semesters);
+    
+
+    for(int i = 0; i < semesters; ++i){
+        std::cout << "Enter GPA for semester: " << (i + 1) << ": ";
+        std::cin >> GPAS[i];
+    }
+    
 
 }
 
@@ -25,11 +36,23 @@ student_GPA::~student_GPA()
 }
 
 
+void calc_GPA(const std::vector<double>& GPAS, int semesters){
+    for(auto i = 0; i < 10; ++i){
+        std::cout << "COOKIES\n";
+    }
+
+
+
+}
+
+
 
 int main(){
 
-    student_GPA();
+    student_GPA student;
 
+
+    calc_GPA(student.GPAS, student.semesters);
 
     
     return 0;
