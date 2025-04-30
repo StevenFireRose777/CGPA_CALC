@@ -6,5 +6,3 @@ This is a C++ project of all time!!!!!!
 
 
 
-
-Trash can
